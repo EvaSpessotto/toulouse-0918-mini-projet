@@ -17,7 +17,7 @@ const HomeProductsList = () => {
             <Card.Description>Un truc dont vous avez vraiment besoin</Card.Description>
           </Card.Content>
           <Button animated='vertical' primary>
-            <Button.Content hidden>Ajouter au panier</Button.Content>
+            <Button.Content hidden>Add to cart</Button.Content>
             <Button.Content visible>
               <Icon name='shop' />
             </Button.Content>
@@ -74,7 +74,7 @@ const HomeProductsList = () => {
             <Card.Description>Un truc dont vous avez vraiment besoin</Card.Description>
           </Card.Content>
           <Button animated='vertical' primary>
-            <Button.Content hidden>Ajouter au panier</Button.Content>
+            <Button.Content hidden>Add to cart</Button.Content>
             <Button.Content visible>
               <Icon name='shop' />
             </Button.Content>
