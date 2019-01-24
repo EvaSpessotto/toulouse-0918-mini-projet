@@ -18,7 +18,7 @@ const HomeProductsList = ({products, addProductToCart}) => {
                     <span className='price'>{price}€</span>
                   </Card.Meta> */}
                 </Card.Content>
-                <Button animated='vertical' onClick={() => addProductToCart(id)} primary>
+                <Button animated='vertical' onClick={() => addProductToCart(id, name)} primary>
                   <Button.Content hidden>Add to cart</Button.Content>
                   <Button.Content  visible>
                     <Icon name='shop' />
