@@ -3,9 +3,19 @@ import HomeHeader from '../components/Home/HomeHeader';
 import HomeProductsList from '../components/Home/HomeProductsList';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { fetchProducts, fetchProductsError, fetchProductsSuccess } from '../actions';
+import { 
+  fetchProducts, 
+  fetchProductsError, 
+  fetchProductsSuccess,
+  addToCart
+} from '../actions';
 
 class HomeContainer extends Component {
+  constructor(props){
+    super(props)
+
+    this.addProductToCart = this.addProductToCart.bind(this);
+  }
 
   componentDidMount() {
     this.props.fetchProducts()
@@ -15,22 +25,30 @@ class HomeContainer extends Component {
       .catch(error => this.props.fetchProductsError(error))
   }
 
+  addProductToCart(id) {
+    this.props.addToCart(id);
+  }
+
   render() {
     return (
       <div>
         <HomeHeader />
-        <HomeProductsList products={this.props.products} />
+        <HomeProductsList products={this.props.products} addProductToCart={this.addProductToCart} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  products: state.products
+  products: state.products,
+  cart: state.cart
 })
 
 const mapDispatchToProps = {
-  fetchProducts, fetchProductsSuccess, fetchProductsError
+  fetchProducts, 
+  fetchProductsSuccess, 
+  fetchProductsError,
+  addToCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

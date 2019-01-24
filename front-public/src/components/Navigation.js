@@ -13,7 +13,7 @@ class Navigation extends Component {
       
         <Menu  fixed='top'>
         <Container>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item name='super chaussettes' active={activeItem === 'super chaussettes'} onClick={this.handleItemClick} />
           <Menu.Item
             name='products'
             active={activeItem === 'products'}

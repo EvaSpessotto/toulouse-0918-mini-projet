@@ -2,13 +2,15 @@
 import { 
   FETCH_PRODUCTS,
   FETCH_PRODUCTS_SUCCESS,
-  FETCH_PRODUCTS_ERROR
+  FETCH_PRODUCTS_ERROR,
+  ADD_TO_CART
 } from '../actions';
 
 const initialState = {
   loading: false, 
   products: [],
-  error: null
+  error: null,
+  cart: []
 }
 
 const reducer = (state = initialState, action ) => {
@@ -21,6 +23,9 @@ const reducer = (state = initialState, action ) => {
     }
     case FETCH_PRODUCTS_ERROR: {
       return {...state, loading: false, error: action.error}
+    }
+    case ADD_TO_CART: {
+      return {...state, cart: [...state.cart, action.id]}
     }
     default:
       return state;
