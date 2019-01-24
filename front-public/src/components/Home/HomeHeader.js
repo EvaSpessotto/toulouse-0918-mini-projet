@@ -5,9 +5,7 @@ import { Placeholder, Image } from 'semantic-ui-react'
 class HomeHeader extends Component {
   render() {
     return (
-      <Placeholder fluid style={{ height: 600}}>
-        <Placeholder.Image  />
-      </Placeholder>
+      <Image src="https://s3-eu-central-1.amazonaws.com/heeboo-s3/wp-content/uploads/2017/10/20152421/wendykarivendegif60.jpg" fluid/>
     );
   }
 }
