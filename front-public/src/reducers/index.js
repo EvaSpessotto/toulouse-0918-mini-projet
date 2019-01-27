@@ -25,7 +25,7 @@ const reducer = (state = initialState, action ) => {
       return {...state, loading: false, error: action.error}
     }
     case ADD_TO_CART: {
-      return {...state, cart: [...state.cart, {name:action.name, id:action.productId}]}
+       return {...state, cart: [...state.cart, {name:action.name, id:action.productId, quantity: action.quantity}]}
     }
     default:
       return state;

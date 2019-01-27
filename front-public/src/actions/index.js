@@ -19,7 +19,7 @@ export const fetchProductsError = (error) => ({
 });
 
 // Ajout au panier
-export const addToCart = (productId, name) => ({
+export const addToCart = (productId, name, quantity) => ({
   type: ADD_TO_CART,
-  productId, name
+  productId, name, quantity
 });

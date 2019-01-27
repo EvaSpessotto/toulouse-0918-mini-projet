@@ -8,17 +8,15 @@ const HomeProductsList = ({products, addProductToCart}) => {
         {
           products.map((product) => {
             const { name, id, description, price, picture  } = product;
+            const quantity = 1;
             return (
               <Card key={id} style={{border: '0px'}}>
                 <Image src={picture} fluid />
                 <Card.Content textAlign='center'>
                   <Card.Header>{name.toUpperCase()}</Card.Header>
                   <Header>{price}€</Header>
-                  {/* <Card.Meta>
-                    <span className='price'>{price}€</span>
-                  </Card.Meta> */}
                 </Card.Content>
-                <Button animated='vertical' onClick={() => addProductToCart(id, name)} primary>
+                <Button animated='vertical' onClick={() => addProductToCart(id, name, quantity)} primary>
                   <Button.Content hidden>Add to cart</Button.Content>
                   <Button.Content  visible>
                     <Icon name='shop' />

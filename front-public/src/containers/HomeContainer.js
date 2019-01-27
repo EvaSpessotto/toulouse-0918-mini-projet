@@ -25,8 +25,8 @@ class HomeContainer extends Component {
       .catch(error => this.props.fetchProductsError(error))
   }
 
-  addProductToCart(productId, name) {
-    this.props.addToCart(productId, name);
+  addProductToCart(productId, name, quantity) {
+    this.props.addToCart(productId, name, quantity);
   }
 
   render() {
