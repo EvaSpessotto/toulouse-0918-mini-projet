@@ -16,7 +16,7 @@ const HomeProductsList = ({products, addProductToCart}) => {
                   <Card.Header>{name.toUpperCase()}</Card.Header>
                   <Header>{price}€</Header>
                 </Card.Content>
-                <Button animated='vertical' onClick={() => addProductToCart(id, name, quantity)} primary>
+                <Button animated='vertical' onClick={() => addProductToCart(id, name, picture, quantity, price)} primary>
                   <Button.Content hidden>Add to cart</Button.Content>
                   <Button.Content  visible>
                     <Icon name='shop' />

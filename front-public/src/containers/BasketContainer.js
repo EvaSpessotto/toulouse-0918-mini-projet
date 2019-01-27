@@ -1,22 +1,42 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Basket from '../components/basket/Basket';
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Basket from "../components/basket/Basket";
+import { Table, Container } from "semantic-ui-react";
 
 class BasketContainer extends Component {
-    render() {
-        return (
-            <div>
+  render() {
+    return (
+      <Container style={{ marginTop: '100px', marginBottom: '100px' }}>
+        <h1>My cart</h1>
+        {
+            this.props.cart.length < 1 
+            ? <h4>Woops, there's nothing here, sorry... Continue shopping ?</h4>
+            : <Table>
+                <Table.Header>
+                <Table.Row>
+                    <Table.HeaderCell>Product</Table.HeaderCell>
+                    <Table.HeaderCell>Quantity</Table.HeaderCell>
+                    <Table.HeaderCell>Price</Table.HeaderCell>
+                </Table.Row>
+                </Table.Header>
                 <Basket cart={this.props.cart} />
-            </div>
-        );
-    }
+                <Table.Footer>
+                <Table.Row>
+                    <Table.HeaderCell />
+                    <Table.HeaderCell />
+                    <Table.HeaderCell>Total: </Table.HeaderCell>
+                </Table.Row>
+                </Table.Footer>
+            </Table>
+        }
+       
+      </Container>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-    cart: state.cart
-})
+  cart: state.cart
+});
 
-export default connect(
-    mapStateToProps,
-)(BasketContainer);
+export default connect(mapStateToProps)(BasketContainer);
