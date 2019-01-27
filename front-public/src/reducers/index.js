@@ -10,7 +10,8 @@ const initialState = {
   loading: false, 
   products: [],
   error: null,
-  cart: []
+  cart: [], 
+  total: 0
 }
 
 const reducer = (state = initialState, action ) => {
@@ -31,7 +32,8 @@ const reducer = (state = initialState, action ) => {
           quantity: action.quantity, 
           picture: action.picture,
           price: action.price
-        }]
+        }],
+        total: state.total + action.price
       }
     }
     default:
