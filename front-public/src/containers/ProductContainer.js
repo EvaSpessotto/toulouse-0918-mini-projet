@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Grid, Header } from 'semantic-ui-react';
-import { fetchSingleProduct, fetchSingleProductError, fetchSingleProductSuccess } from '../actions';
+import { fetchSingleProduct, fetchSingleProductError, fetchSingleProductSuccess, handleQuantity } from '../actions';
 import axios from 'axios';
 import Product from '../components/product/Product';
 import '../style/product.scss'
+import { addToCart } from '../actions';
 
 
 class ProductContainer extends Component {
+	constructor(props){
+		super(props)
+		this.addToCart = this.addToCart.bind(this)
+	}
 
 	componentDidMount() {
 		this.props.fetchSingleProduct()
@@ -17,12 +22,20 @@ class ProductContainer extends Component {
       .then(product => this.props.fetchSingleProductSuccess(product))
       .catch(error => this.props.fetchSingleProductError(error))
 	}
+
+	addToCart(id, name, picture, quantity, price ) {
+		this.props.addToCart(id, name, picture, quantity, price)
+	}
 	
 	render() {
 		return (
 			<Container id="product-container">
 				{
-					this.props.product && <Product {...this.props.product} />
+					this.props.product && 
+					<Product 
+					{...this.props.product} 
+					addToCart={this.addToCart} 
+					/>
 				}
 			</Container>
 		);
@@ -36,7 +49,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
 	fetchSingleProduct,
 	fetchSingleProductError,
-	fetchSingleProductSuccess
+	fetchSingleProductSuccess,
+	addToCart,
 }
 export default connect(
 	mapStateToProps, 
