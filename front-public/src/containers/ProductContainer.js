@@ -4,6 +4,7 @@ import { Container, Grid, Header } from 'semantic-ui-react';
 import { fetchSingleProduct, fetchSingleProductError, fetchSingleProductSuccess } from '../actions';
 import axios from 'axios';
 import Product from '../components/product/Product';
+import '../style/product.scss'
 
 
 class ProductContainer extends Component {
@@ -19,15 +20,17 @@ class ProductContainer extends Component {
 	
 	render() {
 		return (
-			<Container style={{marginTop: '30vh'}}>
-				<Product product={this.props.product} />
+			<Container id="product-container">
+				{
+					this.props.product && <Product {...this.props.product} />
+				}
 			</Container>
 		);
 	}
 }
 
 const mapStateToProps = state => ({
-	product: state.products.singleProduct
+	product: state.products.product
 })
 
 const mapDispatchToProps = {

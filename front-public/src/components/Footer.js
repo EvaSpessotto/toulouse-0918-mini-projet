@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Segment, Container, Grid, Header, Icon, Item, Divider } from 'semantic-ui-react'
-
+import '../style/footer.scss';
 class Footer extends Component {
   render() {
     return (
-      <Container style={{ marginBottom: '20px' }}>
+      <Container id="footer-container">
         <Divider />
-        <Grid style={{ marginTop: '20px' }} textAlign='center' stackable>
+        <Grid id='footer' textAlign='center' stackable>
           <Grid.Row columns='4' >
             <Grid.Column textAlign='left'>
               <Header>About</Header>
@@ -35,7 +35,7 @@ class Footer extends Component {
             </Grid.Column>
           </Grid.Row>
 
-          <Grid.Row  style={{marginBottom: '20px', marginTop: '50px' }}>
+          <Grid.Row  className="socials" >
             <Grid.Column>
               <Icon link name='facebook' size='large' />
             </Grid.Column>

@@ -11,7 +11,8 @@ import {
 const initialState = {
   loading: false, 
   products: [],
-  error: null,
+	error: null,
+	product: {}
 }
 
 const reducer = (state = initialState, action ) => {
@@ -29,8 +30,8 @@ const reducer = (state = initialState, action ) => {
 			return {...state, loading: true }
 		}
 		case FETCH_SINGLE_PRODUCT_SUCCESS: {
-			const singleProduct = state.products.filter(product => product.id === action.product.id)
-			return {...state, loading: false, singleProduct}
+			// const singleProduct = state.products.filter(product => product.id === action.product.id)
+			return {...state, loading: false, product: action.product}
 		}
 		case FETCH_SINGLE_PRODUCT_ERROR: {
 			return {...state, loading: false, error: action.error}

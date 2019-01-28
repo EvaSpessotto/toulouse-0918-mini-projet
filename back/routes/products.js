@@ -27,4 +27,14 @@ router.get('/', (req, res) => {
 //   })
 // })
 
+router.get('/:id', (req, res) => {
+	queryAsync('SELECT * FROM product WHERE id = ?', req.params.id)
+		.then(product => res.json(product[0]))
+		.catch(err => {
+			res.status(500).json({
+				error: err.message
+			})
+		})
+})
+
 module.exports = router;
