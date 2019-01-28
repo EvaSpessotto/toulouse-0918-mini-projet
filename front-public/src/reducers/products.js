@@ -2,7 +2,10 @@
 import { 
   FETCH_PRODUCTS,
   FETCH_PRODUCTS_SUCCESS,
-  FETCH_PRODUCTS_ERROR,
+	FETCH_PRODUCTS_ERROR,
+	FETCH_SINGLE_PRODUCT,
+	FETCH_SINGLE_PRODUCT_ERROR,
+	FETCH_SINGLE_PRODUCT_SUCCESS
 } from '../actions';
 
 const initialState = {
@@ -21,7 +24,17 @@ const reducer = (state = initialState, action ) => {
     }
     case FETCH_PRODUCTS_ERROR: {
       return {...state, loading: false, error: action.error}
-    }
+		}
+		case FETCH_SINGLE_PRODUCT: {
+			return {...state, loading: true }
+		}
+		case FETCH_SINGLE_PRODUCT_SUCCESS: {
+			const singleProduct = state.products.filter(product => product.id === action.product.id)
+			return {...state, loading: false, singleProduct}
+		}
+		case FETCH_SINGLE_PRODUCT_ERROR: {
+			return {...state, loading: false, error: action.error}
+		}
     default:
       return state;
   }

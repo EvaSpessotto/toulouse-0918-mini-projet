@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Button, Card, Image, Placeholder, Container, Icon, Header } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 const HomeProductsList = ({products, addProductToCart}) => {
   return (
@@ -13,7 +14,7 @@ const HomeProductsList = ({products, addProductToCart}) => {
               <Card key={id} style={{border: '0px'}}>
                 <Image src={picture} fluid />
                 <Card.Content textAlign='center'>
-                  <Card.Header>{name.toUpperCase()}</Card.Header>
+                  <Card.Header as={Link} to={`/products/${id}`}>{name.toUpperCase()}</Card.Header>
                   <Header>{price}€</Header>
                 </Card.Content>
                 <Button animated='vertical' onClick={() => addProductToCart(id, name, picture, quantity, price)} primary>

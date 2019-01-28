@@ -19,7 +19,7 @@ class HomeContainer extends Component {
 
   componentDidMount() {
     this.props.fetchProducts()
-    axios.get('http://localhost:5000/api/products')
+    axios.get('/api/products')
       .then(res => res.data)
       .then(products => this.props.fetchProductsSuccess(products))
       .catch(error => this.props.fetchProductsError(error))

@@ -4,6 +4,7 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import HomeContainer from './containers/HomeContainer';
 import BasketContainer from './containers/BasketContainer';
+import ProductContainer from './containers/ProductContainer';
 class App extends Component {
   render() {
     return (
@@ -12,6 +13,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={HomeContainer} />
           <Route path='/mon-panier' component={BasketContainer} />
+					<Route path='/products/:id' component={ProductContainer} />
         </Switch>
         <Footer />
       </div>
