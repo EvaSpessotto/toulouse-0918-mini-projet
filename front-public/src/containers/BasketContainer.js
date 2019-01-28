@@ -36,8 +36,8 @@ class BasketContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart,
-  total: state.total
+  cart: state.cart.cart,
+  total: state.cart.total
 });
 
 export default connect(mapStateToProps)(BasketContainer);

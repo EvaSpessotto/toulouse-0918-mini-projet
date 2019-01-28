@@ -47,7 +47,7 @@ class Navigation extends Component {
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart
+  cart: state.cart.cart
 })
 
 export default connect(mapStateToProps)(Navigation);

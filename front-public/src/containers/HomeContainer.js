@@ -40,8 +40,8 @@ class HomeContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.products,
-  cart: state.cart
+  products: state.products.products,
+  cart: state.cart.cart
 })
 
 const mapDispatchToProps = {
