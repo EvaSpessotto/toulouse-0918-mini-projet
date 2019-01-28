@@ -1,6 +1,7 @@
 
 import { 
-  ADD_TO_CART
+	ADD_TO_CART, 
+	REMOVE_FROM_CART
 } from '../actions';
 
 const initialState = {
@@ -20,7 +21,13 @@ const reducer = (state = initialState, action ) => {
         }],
         total: state.total + action.price
       }
-    }
+		}
+		case REMOVE_FROM_CART: {
+			const cart = state.cart.filter(
+				product => product.id !== action.id
+			)
+			return {cart, total: state.total - action.price}
+		}
     default:
       return state;
   }

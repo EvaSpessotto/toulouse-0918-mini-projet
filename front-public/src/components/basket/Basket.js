@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table, Container, Header, Image } from "semantic-ui-react";
+import { Table, Button, Header, Image, Icon } from "semantic-ui-react";
 
-const Basket = ({ cart }) => {
+const Basket = ({ cart, removeItem }) => {
   return (
     <Table.Body>
       {cart.map((item, index) => (
-        <Table.Row>
+        <Table.Row key={index}>
           <Table.Cell>
             <Header as="h4" image>
               <Image src={item.picture} rounded size="mini" />
@@ -15,6 +15,13 @@ const Basket = ({ cart }) => {
           </Table.Cell>
           <Table.Cell>{item.quantity}</Table.Cell>
           <Table.Cell>{item.price}</Table.Cell>
+          <Table.Cell >
+						<Button 
+							icon="close" 
+							color="red" 
+							onClick={() => removeItem(item.id, item.price)}
+						/>
+					</Table.Cell>
         </Table.Row>
       ))}
     </Table.Body>
