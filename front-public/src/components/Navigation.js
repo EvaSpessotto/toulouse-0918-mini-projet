@@ -15,9 +15,7 @@ class Navigation extends Component {
       
         <Menu  fixed='top'>
         <Container>
-          <Link to='/'>
-            <Menu.Item name='super chaussettes' />
-          </Link>
+            <Menu.Item as={ Link } name='super chaussettes' to='/' />
           <Menu.Item
             name='products'
             active={activeItem === 'products'}

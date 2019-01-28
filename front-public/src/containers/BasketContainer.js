@@ -6,9 +6,10 @@ import { Table, Container } from "semantic-ui-react";
 class BasketContainer extends Component {
   render() {
     return (
-      <Container style={{ marginTop: "100px", marginBottom: "100px" }}>
+      <Container style={{ marginTop: '30vh', marginBottom: "100px" }}>
         <h1>My cart</h1>
-        {this.props.cart.length < 1 ? (
+        {
+          this.props.cart.length < 1 ? (
           <h4>Woops, there's nothing here, sorry... Continue shopping ?</h4>
         ) : (
           <Table>
