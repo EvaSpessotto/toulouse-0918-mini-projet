@@ -1,6 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Table, Button, Header, Image, Icon } from "semantic-ui-react";
+import React from "react";
+import { Table, Button, Header, Image } from "semantic-ui-react";
 
 const Basket = ({ cart, removeItem }) => {
   return (

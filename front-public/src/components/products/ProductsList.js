@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Button, Card, Image, Placeholder, Container, Icon, Header } from 'semantic-ui-react'
+import React from 'react';
+import { Button, Card, Image, Container, Icon, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 import '../../style/homeProductsList.scss';
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Grid, Header } from 'semantic-ui-react';
-import { fetchSingleProduct, fetchSingleProductError, fetchSingleProductSuccess, handleQuantity } from '../actions';
+import { Container } from 'semantic-ui-react';
+import { fetchSingleProduct, fetchSingleProductError, fetchSingleProductSuccess } from '../actions';
 import axios from 'axios';
 import Product from '../components/product/Product';
 import '../style/product.scss'

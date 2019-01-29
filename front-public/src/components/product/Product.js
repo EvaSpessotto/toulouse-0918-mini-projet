@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Grid, Image, Header, Segment, Select, Button, Dropdown } from 'semantic-ui-react';
+import React from 'react';
+import { Grid, Image, Header, Button, Dropdown } from 'semantic-ui-react';
 
 const Product = ({ picture, name, description, price, id, addToCart }) => {
 	const options = [

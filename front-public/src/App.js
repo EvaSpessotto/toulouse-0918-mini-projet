@@ -14,7 +14,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={HomeContainer} />
           <Route path='/mon-panier' component={BasketContainer} />
-					<Route path='/products' component={ProductsListContainer} />
+					<Route exact path='/products' component={ProductsListContainer} />
 					<Route path='/products/:id' component={ProductContainer} />
 
         </Switch>

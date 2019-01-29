@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Menu, Button, Container, Icon, Search } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import Basket from "./basket/Basket";
 
 class Navigation extends Component {
   state = {};
@@ -10,7 +9,6 @@ class Navigation extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.state;
     return (
       <Menu fixed="top" borderless>
         <Container>
