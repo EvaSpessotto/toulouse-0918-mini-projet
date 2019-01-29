@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Table } from "semantic-ui-react";
+import { Container, Table, Button } from "semantic-ui-react";
 import ProductsList from "../components/ProductsList";
 import "../style/productsListContainer.scss";
 import axios from "axios";
@@ -23,6 +23,9 @@ class ProductsListContainer extends Component {
   render() {
     return (
       <Container id="products-list-container">
+				
+				<Button icon="plus" content="Add new product" color="green" floated="right" className="btn-add"/>
+
         <Table celled striped>
           <Table.Header>
             <Table.Row>
@@ -37,6 +40,7 @@ class ProductsListContainer extends Component {
               <Table.HeaderCell>Delete</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
+
 
           <ProductsList products={this.props.products} />
 
