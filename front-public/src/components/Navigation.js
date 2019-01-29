@@ -24,10 +24,16 @@ class Navigation extends Component {
             <Search />
           </Menu.Item>
           <Menu.Item>
-            <Button as={Link} to="/mon-panier">
-              <Icon name="shop" />
-              {this.props.cart.length === 0 ? "" : this.props.cart.length}
-            </Button>
+						{
+							this.props.cart.length === 0 
+							? <Button as={Link} to="/mon-panier">
+									<Icon name='shop' />
+								</Button>
+							: <Button as={Link} to="/mon-panier" color='green'>
+									<Icon name='shop' />
+									{this.props.cart.length}
+								</Button>
+						}
           </Menu.Item>
 
           <Menu.Item>

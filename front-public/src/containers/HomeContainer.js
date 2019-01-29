@@ -3,6 +3,7 @@ import HomeHeader from '../components/Home/HomeHeader';
 import HomeProductsList from '../components/Home/HomeProductsList';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { Header } from 'semantic-ui-react';
 import { 
   fetchProducts, 
   fetchProductsError, 
@@ -32,6 +33,7 @@ class HomeContainer extends Component {
     return (
       <div>
         <HomeHeader />
+				<Header textAlign='center' as="h1">New products !</Header>
         <HomeProductsList products={this.props.products} addProductToCart={this.addProductToCart} />
       </div>
     );

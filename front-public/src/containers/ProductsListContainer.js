@@ -8,7 +8,7 @@ class ProductsListContainer extends Component {
 	constructor(props){
     super(props)
     this.addProductToCart = this.addProductToCart.bind(this);
-  }
+	}
 
   addProductToCart(id, name, picture, quantity, price) {
     this.props.addToCart(id, name, picture, quantity, price);
