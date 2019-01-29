@@ -13,7 +13,6 @@ import {
 class HomeContainer extends Component {
   constructor(props){
     super(props)
-
     this.addProductToCart = this.addProductToCart.bind(this);
   }
 
