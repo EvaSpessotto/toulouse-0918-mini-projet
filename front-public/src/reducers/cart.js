@@ -22,45 +22,31 @@ const reducer = (state = initialState, action) => {
       //     }
       //   ]
 			// };
-			
-			 return state.cart.map(product => {
-				 console.log(product)
-				if (product.id === action.id){
-					return {
-						...state,
-						total: state.total + action.price,
-						cart: [
-							...state.cart,
-							{...state.cart.product, quantity: state.quantity + 1}
-						]
-					}
-				}
-				return {
-					...state,
-					total: state.total + action.price,
-					cart: [
-						...state.cart,
-						{
-							id: action.id,
-							name: action.name,
-							quantity: action.quantity,
-							picture: action.picture,
-							price: action.price
-						}
-					]
-				};
-				
-			})
-			
 		
-		}
-		
-		
+			const itemIndex = state.cart.findIndex(product => product.id === action.id);
+			const newCart = [...state.cart]
+			let newTotal = state.total + action.price*action.quantity
+			if (itemIndex > -1){
+				const item = {...state.cart[itemIndex]}
+				item.quantity+= action.quantity
+				newCart.splice(itemIndex, 1, item)
+			}
+			else {
+				const { type, ...newItem } = action;
+				newCart.push(newItem)
+			}
+			return {
+				...state,
+				cart: newCart,
+				total: newTotal
+			}
 
-    // case REMOVE_FROM_CART: {
-    //   const cart = state.cart.filter(product => product.id !== action.id);
-    //   return { cart, total: state.total - action.price };
-    // }
+			}
+
+    case REMOVE_FROM_CART: {
+      const cart = state.cart.filter(product => product.id !== action.id);
+      return { cart, total: state.total - action.price };
+    }
     default:
       return state;
   }
