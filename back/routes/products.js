@@ -37,4 +37,31 @@ router.get('/:id', (req, res) => {
 		})
 })
 
+router.post('/:id', (req, res) => {
+	queryAsync('INSERT INTO product SET ?', req.body)
+		.then(({ insertId }) => queryAsync('SELECT * FROM product WHERE id = ?', insertId))
+		.then(products => {
+			product = products[0]
+		})
+		.catch(err => res.status(500).json({
+			error: err.message
+		}));
+});
+
+router.put('/:id', (req, res) => {
+	queryAsync('UPDATE product SET ? WHERE id = ?', [req.body, req.params.id])
+		.then(res => res.status(201))
+		.catch(err => res.status(500).json({
+			error: err.message
+		}))
+})
+
+router.delete('/:id', (req, res) => {
+	queryAsync('DELETE product WHERE id = ?', req.params.id)
+		.then(res => res.status(204))
+		.catch(err => res.status(500).json({
+			error: err.message
+		}))
+})
+
 module.exports = router;
