@@ -3,6 +3,7 @@ import { Container, Table, Button } from "semantic-ui-react";
 import ProductsList from "../components/ProductsList";
 import "../style/productsListContainer.scss";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import {
   fetchProducts,
@@ -34,7 +35,14 @@ class ProductsListContainer extends Component {
   render() {
     return (
       <Container id="products-list-container">
-				<Button icon="plus" content="Add new product" color="green" floated="right" className="btn-add	"/>
+				<Button 
+					icon="plus" 
+					content="Add new product" 
+					color="green" 
+					floated="right" 
+					className="btn-add"
+					as={Link} to="/create-new-product" 
+				/>
         <Table celled striped>
           <Table.Header>
             <Table.Row>

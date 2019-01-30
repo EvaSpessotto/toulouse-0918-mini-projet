@@ -50,18 +50,18 @@ router.post('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
 	queryAsync('UPDATE product SET ? WHERE id = ?', [req.body, req.params.id])
-		.then(res => res.status(201))
+		.then(result => res.sendStatus(201))
 		.catch(err => res.status(500).json({
 			error: err.message
 		}))
 })
 
 router.delete('/:id', (req, res) => {
-	queryAsync('DELETE product WHERE id = ?', req.params.id)
-		.then(res => res.status(204))
+	queryAsync('DELETE FROM product WHERE id = ?', req.params.id)
+		.then(result => res.sendStatus(204))
 		.catch(err => res.status(500).json({
 			error: err.message,
-			details: error.sql
+			details: err.sql
 		}))
 })
 

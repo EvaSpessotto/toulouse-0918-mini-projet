@@ -29,7 +29,7 @@ const ProductsList = ({ products, deleteProduct }) => {
             <Table.Cell>{moment(createdAt).format("l")}</Table.Cell>
             <Table.Cell>n°{reference}</Table.Cell>
             <Table.Cell textAlign="right">
-              <Button icon="edit" color="blue" as={Link} to="/create-new-product" />
+              <Button icon="edit" color="blue" />
             </Table.Cell>
             <Table.Cell>
               <Button icon="close" color="red" onClick={() => deleteProduct(id)}/>
