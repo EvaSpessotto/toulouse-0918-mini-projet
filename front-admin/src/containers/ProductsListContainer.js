@@ -7,25 +7,34 @@ import { connect } from "react-redux";
 import {
   fetchProducts,
   fetchProductsError,
-  fetchProductsSucess
+	fetchProductsSucess,
+	deleteItem
 } from "../actions";
 
 class ProductsListContainer extends Component {
+	constructor(props){
+		super(props)
+		this.deleteProduct = this.deleteProduct.bind(this)
+	}
   componentDidMount() {
     this.props.fetchProducts();
-    axios
-      .get("http://localhost:5000/api/products")
+    axios.get("/api/products")
       .then(res => res.data)
       .then(products => this.props.fetchProductsSucess(products))
       .catch(error => this.props.fetchProductsError(error));
-  }
+	}
+	
+	deleteProduct(id){
+		this.props.deleteItem(id)
+		axios.delete(`/api/products/${id}`)
+		.then(res => console.log(res))
+		.catch(error => console.error(error))
+	}
 
   render() {
     return (
       <Container id="products-list-container">
-				
-				<Button icon="plus" content="Add new product" color="green" floated="right" className="btn-add"/>
-
+				<Button icon="plus" content="Add new product" color="green" floated="right" className="btn-add	"/>
         <Table celled striped>
           <Table.Header>
             <Table.Row>
@@ -40,10 +49,7 @@ class ProductsListContainer extends Component {
               <Table.HeaderCell>Delete</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
-
-
-          <ProductsList products={this.props.products} />
-
+          <ProductsList products={this.props.products} deleteProduct={this.deleteProduct} />
         </Table>
       </Container>
     );
@@ -57,7 +63,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   fetchProducts,
   fetchProductsError,
-  fetchProductsSucess
+	fetchProductsSucess,
+	deleteItem
 };
 
 export default connect(

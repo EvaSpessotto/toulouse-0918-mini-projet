@@ -1,6 +1,7 @@
 export const FETCH_PRODUCTS = 'FETCH_PRODUCTS'
 export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS'
 export const FETCH_PRODUCTS_ERROR = 'FETCH_PRODUCTS_ERROR'
+export const DELETE_ITEM = 'DELETE_ITEM';
 
 export const fetchProducts = () => ({
 	type: FETCH_PRODUCTS
@@ -14,4 +15,9 @@ export const fetchProductsSucess = (products) => ({
 export const fetchProductsError = (error) => ({
 	type: FETCH_PRODUCTS_ERROR,
 	error
+});
+
+export const deleteItem = (id) => ({
+	type: DELETE_ITEM,
+	id
 });

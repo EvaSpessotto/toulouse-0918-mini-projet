@@ -1,5 +1,5 @@
 
-import { FETCH_PRODUCTS, FETCH_PRODUCTS_ERROR, FETCH_PRODUCTS_SUCCESS } from '../actions';
+import { FETCH_PRODUCTS, FETCH_PRODUCTS_ERROR, FETCH_PRODUCTS_SUCCESS, DELETE_ITEM } from '../actions';
 
 const initialState = {
 	products: [],
@@ -17,6 +17,10 @@ const reducer = (state = initialState, action) => {
 		}
 		case FETCH_PRODUCTS_ERROR: {
 			return {...state, loading: false, error: action.error}
+		}
+		case DELETE_ITEM: {
+			const newProductsList = state.products.filter(product => product.id !== action.id)
+			return {...state, products: newProductsList }
 		}
 		default:
 			return state;

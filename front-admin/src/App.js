@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import ProductsListContainer from "./containers/ProductsListContainer";
+import CreateFormContainer from './containers/CreateFormContainer';
 import { Link } from "react-router-dom";
 
 import {
@@ -57,6 +58,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/products" component={ProductsListContainer} />
+						<Route path="/create-new-product" component={CreateFormContainer} />
           </Switch>
         </Sidebar.Pusher>
       </Sidebar.Pushable>

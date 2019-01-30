@@ -60,7 +60,8 @@ router.delete('/:id', (req, res) => {
 	queryAsync('DELETE product WHERE id = ?', req.params.id)
 		.then(res => res.status(204))
 		.catch(err => res.status(500).json({
-			error: err.message
+			error: err.message,
+			details: error.sql
 		}))
 })
 
